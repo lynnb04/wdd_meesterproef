@@ -5,6 +5,17 @@ siblingIndexContainer?.forEach(container => {
     const directChildren = container.querySelectorAll(":scope > *")
     directChildren.forEach(item => {
         let selfIndex = Array.from(directChildren).indexOf(item)
-        item.setAttribute("--siblingindex", selfIndex)
+        item.setAttribute("--sibling-index", selfIndex)
     })
 })
+
+
+// add class .span-split on a container with text to put all letters inside in a seperate span
+const spanSplitContainer = document.querySelectorAll(".span-split")
+
+spanSplitContainer?.forEach((el) => {
+    el.innerHTML = el.textContent
+        .split("")
+        .map((char) => `<span>${char === " " ? "&nbsp;" : char}</span>`)
+        .join("");
+});
