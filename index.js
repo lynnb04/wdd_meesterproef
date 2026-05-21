@@ -5,6 +5,7 @@ siblingIndexContainer?.forEach(container => {
     const directChildren = container.querySelectorAll(":scope > *")
     directChildren.forEach(item => {
         let selfIndex = Array.from(directChildren).indexOf(item)
-        item.setAttribute("--siblingindex", selfIndex)
+        item.setAttribute("--sibling-index", selfIndex)
     })
+  container.setAttribute("--sibling-count", directChildren.length)
 })
